@@ -30,7 +30,7 @@ app.post('/add', (req, res) => {
         res.end();
         return; 
     } else {
-        if(parseInt(firstNumber) < -1000000 || parseInt(secondNumber) < -1000000) {
+        if(parseFloat(firstNumber) < -1000000 || parseFloat(secondNumber) < -1000000) {
             res.send(JSON.stringify({
                 status: "error",
                 message: "Underflow",
@@ -38,7 +38,7 @@ app.post('/add', (req, res) => {
             }));
             res.end();
             return;   
-        } else if(parseInt(firstNumber) > 1000000 || parseInt(secondNumber) > 1000000 || (parseInt(firstNumber) + parseInt(secondNumber) > 1000000)) {
+        } else if(parseFloat(firstNumber) > 1000000 || parseFloat(secondNumber) > 1000000 || (parseFloat(firstNumber) + parseFloat(secondNumber) > 1000000)) {
             res.send(JSON.stringify({
                 status: "error",
                 message: "Overflow",
@@ -50,7 +50,7 @@ app.post('/add', (req, res) => {
             res.send(JSON.stringify({
                 status: "success",
                 message: "the sum of given two numbers",
-                sum: parseInt(firstNumber) + parseInt(secondNumber)
+                sum: parseFloat(firstNumber) + parseFloat(secondNumber)
             }));
             res.end();
         }
@@ -70,7 +70,7 @@ app.post('/sub', (req, res) => {
         res.end();
         return; 
     } else {
-        if(parseInt(firstNumber) < -1000000 || parseInt(secondNumber) < -1000000 || (parseInt(firstNumber) - parseInt(secondNumber) < -1000000)) {
+        if(parseFloat(firstNumber) < -1000000 || parseFloat(secondNumber) < -1000000 || (parseFloat(firstNumber) - parseFloat(secondNumber) < -1000000)) {
             res.send(JSON.stringify({
                 status: "error",
                 message: "Underflow",
@@ -78,7 +78,7 @@ app.post('/sub', (req, res) => {
             }));
             res.end();
             return;
-        } else if(parseInt(firstNumber) > 1000000 || parseInt(secondNumber) > 1000000) {
+        } else if(parseFloat(firstNumber) > 1000000 || parseFloat(secondNumber) > 1000000) {
             res.send(JSON.stringify({
                 status: "error",
                 message: "Overflow",
@@ -90,7 +90,7 @@ app.post('/sub', (req, res) => {
             res.send(JSON.stringify({
                 status: "success",
                 message: "the difference of given two numbers",
-                difference: parseInt(firstNumber) - parseInt(secondNumber)
+                difference: parseFloat(firstNumber) - parseFloat(secondNumber)
             }));
             res.end();
             return;
@@ -111,7 +111,7 @@ app.post('/multiply', (req, res) => {
         res.end();
         return;
     } else {
-        if(parseInt(firstNumber) > 1000000 || parseInt(secondNumber) > 1000000) {
+        if(parseFloat(firstNumber) > 1000000 || parseFloat(secondNumber) > 1000000) {
             res.send(JSON.stringify({
                 status: "error",
                 message: "Overflow",
@@ -119,7 +119,7 @@ app.post('/multiply', (req, res) => {
             }));
             res.end();
             return;
-        } else if(parseInt(firstNumber) < -1000000 || parseInt(secondNumber) < -1000000) {
+        } else if(parseFloat(firstNumber) < -1000000 || parseFloat(secondNumber) < -1000000) {
             res.send(JSON.stringify({
                 status: "error",
                 message: "Underflow",
@@ -131,7 +131,7 @@ app.post('/multiply', (req, res) => {
             res.send(JSON.stringify({
                 status: "success",
                 message: "The product of given numbers",
-                result: parseInt(firstNumber) * parseInt(secondNumber)
+                result: parseFloat(firstNumber) * parseFloat(secondNumber)
             }));
             res.end();
             return;
@@ -147,7 +147,7 @@ app.post('/divide', (req, res) => {
         res.send(JSON.stringify({
             status: "error",
             message: "Cannot divide by zero",
-            result: parseInt(firstNumber) / parseInt(secondNumber)
+            result: parseFloat(firstNumber) / parseFloat(secondNumber)
         }));
         res.end();
         return;
@@ -162,7 +162,7 @@ app.post('/divide', (req, res) => {
         res.end();
         return;
     } else {
-        if(parseInt(firstNumber) > 1000000 || parseInt(secondNumber) > 1000000) {
+        if(parseFloat(firstNumber) > 1000000 || parseFloat(secondNumber) > 1000000) {
             res.send(JSON.stringify({
                 status: "error",
                 message: "Overflow",
@@ -170,7 +170,7 @@ app.post('/divide', (req, res) => {
             }));
             res.end();
             return;
-        } else if(parseInt(firstNumber) < -1000000 || parseInt(secondNumber) < -1000000) {
+        } else if(parseFloat(firstNumber) < -1000000 || parseFloat(secondNumber) < -1000000) {
             res.send(JSON.stringify({
                 status: "error",
                 message: "Underflow",
@@ -182,7 +182,7 @@ app.post('/divide', (req, res) => {
             res.send(JSON.stringify({
                 status: "success",
                 message: "The division of given numbers",
-                result: parseInt(firstNumber) / parseInt(secondNumber)
+                result: parseFloat(firstNumber) / parseFloat(secondNumber)
             }));
             res.end();
             return;
